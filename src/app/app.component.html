@@ -1,3 +1,21 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+
+
 <form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
   <mat-card>
     <mat-card-header>
@@ -6,6 +24,7 @@
           [ngClass]="{'invalid': ngForm.submitted }">* required</span>
       </mat-card-title>
     </mat-card-header>
+    
     <mat-card-content>
       <div class="row">
         <div class="col-md-6">
@@ -19,6 +38,7 @@
           </mat-form-field>
         </div>
       </div>
+      
       <div class="row">
         <div class="col-sm-6">
           <mat-form-field class="full-width">
@@ -34,6 +54,7 @@
           </mat-form-field>
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-12">
           <mat-radio-group [ngClass]="{'invalid': ngForm.submitted && profileForm.get('gender').invalid}"
@@ -44,6 +65,7 @@
         </div>
       </div>
     </mat-card-content>
+
     <mat-card-actions>
       <button (click)="saveForm()" mat-raised-button color="primary">Save</button>
     </mat-card-actions>

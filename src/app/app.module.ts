@@ -13,25 +13,47 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule} from '@angular/material/list';
+import { TableComponent } from './table/table.component';
+import { RouterModule } from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatChipsModule} from '@angular/material/chips';
+
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
     MatButtonModule,
+    MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatListModule  
+    MatMenuModule,
+    MatListModule,
+    MatIconModule,
+    MatGridListModule,
+    MatChipsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
