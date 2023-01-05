@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "reactive"
+  "defaultProject": "reactive",
+  "cli": {
+    "analytics": "9ce8e95d-b139-4097-b740-b059ddbbe26c"
+  }
 }
