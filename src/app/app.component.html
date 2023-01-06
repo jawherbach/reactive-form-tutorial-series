@@ -24,21 +24,32 @@
   </button>
 </mat-toolbar>
 
-<form [formGroup]="profileForm"  class="form-container">
-  <mat-card class="card text-white bg-success mb-3 ">
+<form [formGroup]="profileForm" class="form-container">
+  <mat-card class="card">
     <mat-card-header>
-      <mat-card-title> Profile Information  </mat-card-title>
+      <mat-card-title> Profile Information </mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
       <div class="row">
         <div class="col-md-6">
           <mat-form-field class="full-width">
+            
             <input
               formControlName="firstName"
               matInput
               placeholder="First name"
+              required
             />
+            <p
+              class="alert alert-danger"
+              *ngIf="
+              firstName.touched &&
+              firstName.hasError('required')
+              "
+            >
+              this name is required
+            </p>
           </mat-form-field>
         </div>
         <div class="col-md-6">
@@ -47,7 +58,17 @@
               formControlName="lastName"
               matInput
               placeholder="Last name"
+              required
             />
+            <p
+              class="alert alert-danger"
+              *ngIf="
+              lastName.touched &&
+              lastName.hasError('required')
+              "
+            >
+              this lastName is required
+            </p>
           </mat-form-field>
         </div>
       </div>
@@ -59,13 +80,36 @@
               formControlName="address"
               matInput
               placeholder="Address"
+              required 
+              minlength="10"
             ></textarea>
+            <p
+            class="alert alert-danger"
+            *ngIf="
+            address.touched &&
+            address.hasError('required')"
+            >
+            this Address is required
+            </p>
+            <p
+            class="alert alert-danger"
+            *ngIf="
+            address.hasError('minlength')
+            "
+            >
+            this is the min caracter for Adresse
+            </p>
           </mat-form-field>
         </div>
         <div class="col-md-6 top-padding">
           <mat-form-field class="full-width" appearance="fill">
             <mat-label>Select DOB</mat-label>
-            <input formControlName="dob" matInput [matDatepicker]="picker" />
+            <input
+              formControlName="dob"
+              matInput
+              [matDatepicker]="picker"
+              required
+            />
             <mat-datepicker-toggle
               matSuffix
               [for]="picker"
@@ -74,27 +118,84 @@
           </mat-form-field>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input
+              formControlName="Email"
+              matInput
+              placeholder="Email"
+              required
+            />
+            <p
+              class="alert alert-danger"
+              *ngIf="
+              Email.touched &&
+              Email.hasError('required')
+              "
+            >
+              this Email is required
+            </p>
+            <p
+              class="alert alert-danger"
+              *ngIf="Email.hasError('email')"
+            >
+              this is not Email
+            </p>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input
+              formControlName="password"
+              matInput
+              placeholder="password"
+              required
+            />
+          </mat-form-field>
+        </div>
+      </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <mat-radio-group
-         
-            formControlName="gender"
-            class="margin-left"
-          >
+        <div class="col-md-6">
+          <mat-radio-group formControlName="gender" class="margin-left">
             <mat-radio-button value="male"> Male </mat-radio-button>
             <mat-radio-button value="female"> Female </mat-radio-button>
           </mat-radio-group>
         </div>
+      </div>
+
+      <div class="col-md-6" formArrayName="items">
+        <div *ngFor=" let item of profileForm.controls.items['controls']; index as i" [formGroupName]="i  ">
+          <mat-form-field class="full-width" >
+            <input
+            formControlName="phone"
+            matInput
+            placeholder="phone"
+          
+          />   
+          </mat-form-field>
+          <mat-form-field>
+            <input
+          formControlName="job"
+          matInput
+          placeholder="phone"
+        
+        />     
+          </mat-form-field>
+
+        </div>
+        <button (click)="addnew()">Add New</button>
       </div>
     </mat-card-content>
 
     <mat-card-actions>
       <button
         (click)="saveForm()"
-        mat-raised-button
+        mat-raised-button    
         color="primary"
         type="submit"
+        [disabled]="profileForm.invalid"
       >
         Save
       </button>
