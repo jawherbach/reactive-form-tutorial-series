@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +11,11 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 export class AppComponent implements OnInit{
  
 
-  constructor(private formBuilder: FormBuilder) {
-   
- }
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder, 
+
+    
+    ) {}
+      ngOnInit() {
     // try yo set value use set/patchvalue  this.profileForm.(patchValue/set)(firstName:"ffff")
  }
  profileForm = this.formBuilder.group({
@@ -57,6 +59,9 @@ export class AppComponent implements OnInit{
    }
   }
   
+  // getcontry(){
+  //   this.contryService.getALLContryApi().subscire
+  // }
 
   get items() {
   return this.profileForm.get('items') as FormArray

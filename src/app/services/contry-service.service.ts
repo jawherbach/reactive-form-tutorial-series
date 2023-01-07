@@ -1,16 +1,17 @@
 import { Injectable, OnInit } from '@angular/core';
-import {HttpClientModule} from 
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ContryServiceService implements OnInit  {
+export class ContryServiceService   {
 
-  constructor(public http:HttpClientModule ) { }
+  constructor(public http:HttpClient ) { }
   
-  ngOnInit(): void {
+  public getALLContryApi(){
+    let myData = this.http.get<any>("https://restcountries.com/v2/all");
+    return myData
 
-   }
   }
-
+}
 
