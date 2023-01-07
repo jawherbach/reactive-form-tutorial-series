@@ -21,6 +21,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatChipsModule} from '@angular/material/chips';
 
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -52,7 +53,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatListModule,
     MatIconModule,
     MatGridListModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule
     
   ],
   providers: [],

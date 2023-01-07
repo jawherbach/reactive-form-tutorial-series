@@ -36,3 +36,10 @@ example-icon{
     font-size: px;
     line-height: 1.42857;
 }
+input.ng-valid{
+    border: 4px solid green;
+}
+input.ng-invalid{
+    border:4px solid red ;
+
+}
