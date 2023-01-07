@@ -147,12 +147,16 @@
         <div class="col-md-6">
           <mat-form-field class="full-width">
             <input
+              type="password"
               formControlName="password"
               matInput
               placeholder="password"
               required
             />
           </mat-form-field>
+          <div class="input-group-addon">
+            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
 
@@ -166,31 +170,38 @@
       </div>
 
       <div class="col-md-6" formArrayName="items">
-        <div *ngFor=" let item of profileForm.controls.items['controls']; index as i" [formGroupName]="i  ">
+        <div *ngFor=" let item of profileForm.controls.items['controls']; index as i" [formGroupName]="i">
           <mat-form-field class="full-width" >
             <input
             formControlName="phone"
             matInput
-            placeholder="phone"
+            placeholder="phone:"
+            type="number" 
+         
+            />{{i}} 
+            <div class="d-flex flex-row-reverse">  
+              <button  type="button" class="close" aria-label="Close" (click)="remove(i)">
+                <span aria-hidden="true">&times;</span>
+              </button>
           
-          />   
+            </div>
           </mat-form-field>
-          <mat-form-field>
+          <!-- <mat-form-field>
             <input
-          formControlName="job"
+          formControlName="id"
           matInput
-          placeholder="phone"
+          placeholder="id"
         
-        />     
-          </mat-form-field>
-
+          />     
+          </mat-form-field> -->
         </div>
-        <button (click)="addnew()">Add New</button>
+        <button type="button"  class="btn btn-warning" (click)="addnew()">Add New</button>
       </div>
     </mat-card-content>
 
     <mat-card-actions>
       <button
+        class="btn btn-success"
         (click)="saveForm()"
         mat-raised-button    
         color="primary"

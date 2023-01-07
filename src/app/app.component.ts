@@ -33,16 +33,23 @@ export class AppComponent implements OnInit{
       phone: ['+216 51 780 '],
       job:['testeur']  
      })
-   ])
+   ]) 
  });
  
   addnew() {
+     let lengtArray = this.items.length
+    
     let newRow=this.formBuilder.group({
-      phone: ['+216 97 317  '],
-      job:['']       
+       phone: [this.items],
+       id: [lengtArray]       
     })
     this.items.push(newRow)
   }
+
+  remove(i) {
+    this.items.removeAt(i)
+    console.log("index",i)
+  } 
   
  saveForm(){
    if(this.profileForm.valid){
