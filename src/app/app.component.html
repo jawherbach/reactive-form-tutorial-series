@@ -158,10 +158,10 @@
             <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
           </div> -->
           <div class="form-select">
-            <mat-form-field appearance="full-width" >
-              <mat-label >Select Contry</mat-label>
-              <mat-select disableRipple >
-                <mat-option ></mat-option>
+            <mat-form-field class="full-width" formControlName="contry"  >
+              <mat-label  >Select Contry</mat-label>
+              <mat-select  disableRipple *ngFor="let Contry of listContry" >
+                <mat-option >{{Contry.name}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -194,7 +194,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
           
-            </div>
+            </div>  
           </mat-form-field>
           <!-- <mat-form-field>
             <input

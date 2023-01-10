@@ -9,9 +9,12 @@ export class ContryServiceService   {
   constructor(public http:HttpClient ) { }
   
   public getALLContryApi(){
-    let myData = this.http.get<any>("https://restcountries.com/v2/all");
-    return myData
+    let myData 
+    return myData= this.http.get<any>("https://restcountries.com/v2/all");
+  }
 
+  postProduct(data : any){
+    return this.http.post<any>("http://localhost:3000/users/",data);
   }
 }
 
