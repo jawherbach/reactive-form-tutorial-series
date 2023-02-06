@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { DateAdapter , MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
 import {ContryServiceService} from '../app/services/contry-service.service'
 
 @Component({
@@ -11,8 +13,9 @@ export class AppComponent implements OnInit {
   listContry = [];
 
   constructor(private formBuilder: FormBuilder,
-              private api:ContryServiceService          
-    ) {}
+              private api:ContryServiceService,private dateAdapter: DateAdapter<Date>
+                        
+    ) {this.dateAdapter.setLocale('en-GB')}
   ngOnInit() {
     // try yo set value use set/patchvalue  this.profileForm.(patchValue/set)(firstName:"ffff")
   }
@@ -63,7 +66,7 @@ export class AppComponent implements OnInit {
     .subscribe({
       next:res=>{
         alert("contry update Successfully");
-        this.listContry=this.myData.res   
+        //this.listContry=this.myData.res   
       },
       error:err=>{
         console.log("this is Error",err)

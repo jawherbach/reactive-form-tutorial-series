@@ -107,14 +107,14 @@
             <input
               formControlName="dob"
               matInput
-              [matDatepicker]="picker"
+              [matDatepicker]="db"
               required
             />
             <mat-datepicker-toggle
               matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+              [for]="db"
+            ></mat-datepicker-toggle >
+            <mat-datepicker #picker  #dp ></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
