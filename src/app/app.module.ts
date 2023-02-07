@@ -55,8 +55,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatGridListModule,
     MatChipsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

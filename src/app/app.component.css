@@ -43,3 +43,8 @@ input.ng-invalid{
     border:4px solid red ;
 
 } */
+
+mat-toolbar{
+    display: flex;
+    justify-content: space-evenly;
+}
